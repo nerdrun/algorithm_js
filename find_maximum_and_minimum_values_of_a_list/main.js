@@ -1,6 +1,6 @@
 var min = function(list){
   // return Math.min(...list);
-  // const getMin = (acc,cur) => Math.min(acc,cur);
+  // const getMin = (acc,cur) => Math.min(acc,cur); 
   // return list.reduce(getMin);
 
   let minimum = list[0];
