@@ -1,6 +1,6 @@
 function longest(s1, s2) {
   /// E6 way
-  return [...new Set(s1 + s2)].sort().join('');
+  // return [...new Set(s1 + s2)].sort().join('');
 
   /// for loop
   function removeDuplication(value) {
