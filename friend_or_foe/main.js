@@ -1,4 +1,5 @@
 function friend(friends){
+  /// ES6
   return friends.filter(friend => friend.length === 4);
 
   /// for loop
