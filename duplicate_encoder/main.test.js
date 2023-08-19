@@ -1,9 +1,5 @@
 const duplicateEncode = require('./main');
 
-/// lowercase test []
-/// duplication syllable test []
-/// encoding test []
-
 test('a returns (', () => {
   expect(duplicateEncode('a')).toBe('(');
 });
@@ -24,16 +20,8 @@ test('aac returns ))(', () => {
   expect(duplicateEncode('aac')).toBe('))(');
 });
 
-test('aacc returns ))))', () => {
-  expect(duplicateEncode('aacc')).toBe('))))');
+test('acaa returns )())', () => {
+  expect(duplicateEncode('acaa')).toBe(')())');
 });
-
-// test('din returns (((', () => {
-//   expect(duplicateEncode('din')).toBe('(((');
-// });
-
-// test('diin returns )', () => {
-//   expect(duplicateEncode('diin')).toBe('(((');
-// });
 
 
