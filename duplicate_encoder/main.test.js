@@ -45,9 +45,9 @@ test('(( @ returns ))((', () => {
 test('(() returns ))(', () => {
   expect(duplicateEncode('(()')).toBe('))(');
 });
-// test(' ( ( ) returns )))))(', () => {
-//   expect(duplicateEncode(' ( ( )')).toBe(')))))(');
-// });
-// test('GaGGGG@y(GcIxuGP returns )())))((()(((()(', () => {
-//   expect(duplicateEncode('GaGGGG@y(GcIxuGP')).toBe(')())))((()(((()(');
-// });
+test(' ( ( ) returns )))))(', () => {
+  expect(duplicateEncode(' ( ( )')).toBe(')))))(');
+});
+test('GaGGGG@y(GcIxuGP returns )())))((()(((()(', () => {
+  expect(duplicateEncode('GaGGGG@y(GcIxuGP')).toBe(')())))((()(((()(');
+});
