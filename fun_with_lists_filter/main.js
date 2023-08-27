@@ -1,38 +1,20 @@
 function filter(head, p) {
-  let result = null;
-  let hihi = null;
+  /// recrusive function
+  if (!head) return head;
+  if (!p(head.data)) return filter(head.next, p);
+  return new Node(head.data, filter(head.next, p));
+
+  /// for loop
   let node = head;
+  let result = null;
+  let pointer = null;
+
   while(node) {
     if(p(node.data)) {
-      if(!result) {
-        result = new Node(node.data);
-        hihi = result.next;
-      }
-      else {
-        result.next = new Node(node.data);
-        hihi = result.next;
-      }
-      console.log('result : ', result);
+      if(pointer === null) pointer = result = new Node(node.data);
+      else pointer = pointer.next = new Node(node.data);
     }
     node = node.next;
-  }
-
-  return result;
-
-  if(head && p(head.data)) {
-    const node = new Node(head.data);
-    result.next = node;
-    let next = head.next;
-    let pointer = result.next;
-    if(next && p(next.data)) {
-      result.next = new Node(next.data);
-      return result;
-      next = next.next;
-      pointer = pointer.next;
-      if(next && p(next.data)) {
-        pointer = new Node(next.data);
-      }
-    }
   }
   return result;
 }
