@@ -1,19 +1,43 @@
 function findCombos(array) {
-  const flat = array.flat(Infinity).sort((a, b) => a - b)
-  if(flat.length <= 1) return 1;
+  if(array.length <= 1) return 1;
 
-  const sort = [];
-  for(let i = 0; i < flat.length; i++) {
-    for(let j = 0; j < flat.length - 1; j++) {
-      if(flat[j] === flat[j + 1]) continue;
-      let temp = flat[j];
-      flat[j] = flat[j + 1];
-      flat[j + 1] = temp; 
-      const join = flat.join('')
-      if(sort.indexOf(join) == -1) sort.push(join);
-    }
+  const result = [];
+  for(let i = 0; i < array.length; i++) { 
+    const permutated = [];
+    const curr = array.slice();
+    const next = curr.splice(i, 1);
+    permutated.concat(next);
+    console.log('next : ', next);
+    console.log(permutated);
+    /// [1] [2] [3]
+    // for(let j = 0; j < curr.length; j++) {
+    //   const subCurr = curr.slice();
+    //   permutated.concat(subCurr.splice(j, 1))
+    // }
+    result.push(permutated);
   }
-  return sort.length;
+
+  return result;
+
+  // const flat = array.flat(Infinity).sort((a, b) => a - b)
+  // if(flat.length <= 1) return 1;
+
+  // let result = [];
+  // const permute = (arr, m = []) => {
+  //   if (arr.length === 0) {
+  //     result.push(m)
+  //   } 
+  //   else {
+  //     for (let i = 0; i < arr.length; i++) {
+  //       let curr = arr.slice();
+  //       if(i + 1 < arr.length && curr[i] === curr[i + 1]) continue;
+  //       let next = curr.splice(i, 1);
+  //       permute(curr.slice(), m.concat(next));
+  //     }
+  //   }
+  // }
+  // permute(flat);
+  // return result.length;
 }
 
 module.exports = findCombos;
