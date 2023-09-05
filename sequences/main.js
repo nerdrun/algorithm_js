@@ -1,10 +1,11 @@
-const deepFlatten = arr => Array.isArray(arr) ? arr.flatMap(deepFlatten) : arr;
-const factorial = n => n > 1 ? n * factorial(n - 1) : 1;
+/// This is how to solve the problem mathmatically
+// const deepFlatten = arr => Array.isArray(arr) ? arr.flatMap(deepFlatten) : arr;
+// const factorial = n => n > 1 ? n * factorial(n - 1) : 1;
 
-function findCombos(array) {
-  const arr = deepFlatten(array), cnt = arr.reduce((res, k) => (res[k] = res[k] + 1 || 1, res), {});
-  return factorial(arr.length) / Object.values(cnt).reduce((a, b) => a * factorial(b), 1);
-}
+// function findCombos(array) {
+//   const arr = deepFlatten(array), cnt = arr.reduce((res, k) => (res[k] = res[k] + 1 || 1, res), {});
+//   return factorial(arr.length) / Object.values(cnt).reduce((a, b) => a * factorial(b), 1);
+// }
 
 /// This solution has been failed due to timeout (12,000ms) for big array
 function findCombos(array) {

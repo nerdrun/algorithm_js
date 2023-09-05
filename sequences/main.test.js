@@ -10,4 +10,7 @@ describe('extract all possible orders', () => {
   test('[1,2,2] returns 3', () => {
     expect(findCombos([1,2,2])).toStrictEqual(3);
   });
+  test('[1,2,2,4] returns 12', () => {
+    expect(findCombos([1,2,2,4])).toStrictEqual(12);
+  });
 });
