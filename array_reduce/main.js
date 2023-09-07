@@ -1,10 +1,12 @@
 // Array.prototype.reduce = function(process, initial) {
-//   for (let i = 0; i < this.length; i++) {
-//     if (!initial){
-//       i++;
-//       initial = this[0];
-//     }
-//     initial =  process(initial, this[i]);
-//   }
-//   return initial;
+  // let reduction = initial;
+  // let index = 0;
+  // if(initial === undefined) {
+  //   reduction = this[0];
+  //   index = 1;
+  // }
+  // for(var i = index; i < this.length; i++){
+  //   reduction = process(reduction, this[i]);
+  // }
+  // return reduction;
 // }
