@@ -1,23 +1,41 @@
 function getGrowth(...args){
-  let difference = 0;
-  let percentage = 0;
-  if(args.length > 0) {
-    difference = '+0';
-    percentage = '+0';
+
+  /// Clever way
+  let res = [], p = args[0];
+
+  for(let c of args) {
+    res.push(`${c} (${formatSignedInt(c - p)}, ${formatSignedInt(100 * c / p - 100)}%)`);
+    p = c;
   }
-  if(args.length > 1) {
-    difference = args[1] - args[0];
-    if(difference >= 0) difference = '+' + difference;
-    percentage = (args[0] / difference) * 100;
-    if(percentage >= 0) percentage = '+' + percentage;
+  return res.join(', ');
+
+  /// ES6
+  return args.reduce((acc, cur, idx, arr) => {
+    if(idx > 0) acc += ', ';
+    let difference = cur - (arr[idx - 1] ?? cur);
+    let percentage = Math.round((difference / (arr[idx - 1] ?? 1)) * 100);
+    if(difference >= 0) difference = `+${difference}`
+    if(percentage >= 0) percentage = `+${percentage}`
+    return acc += `${cur} (${difference}, ${percentage}%)`;
+  }, '');
+
+
+  /// for loop
+  let result = `${args[0]} (+0, +0%)`;
+
+  for(let i = 1; i < args.length; i++) {
+    result += ', ';
+    let difference = args[i] - args[i - 1];
+    let percentage = Math.round((difference / args[i - 1]) * 100);
+    if(difference >= 0) difference = `+${difference}`
+    if(percentage >= 0) percentage = `+${percentage}`
+    result += `${args[i]} (${difference}, ${percentage}%)`;
   }
-  if(args.length > 2) {
-    difference = args[2] - args[1];
-    if(difference >= 0) difference = '+' + difference;
-    percentage = (args[1] / difference) * 100;
-    if(percentage >= 0) percentage = '+' + percentage;
-  }
-  return `(${difference}, ${percentage}%)`;
+  return result;
+}
+
+function formatSignedInt(n) {
+  return (n >= 0 ? '+' : '') + Math.round(n);
 }
 
 module.exports = getGrowth;
