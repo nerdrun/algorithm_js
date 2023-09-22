@@ -1,15 +1,5 @@
 function high(x){
-  const split = x.split(' ');
-  let index = 0;
-  const sums = split.map(val => val.split('').reduce((acc, cur) => {
-    console.log(cur, ': ', cur.charCodeAt(0));
-    console.log('acc : ', acc);
-    return acc + cur.charCodeAt(0)
-  }, 0));
-  return sums;
-  sums.forEach((val, idx, arr) => arr[index] < val ? index = idx : index);
-
-  return split[index];
+  return x.split(' ').map(val => ({ word: val, value: val.split('').reduce((acc, cur) => acc + (cur.charCodeAt(0) - 96), 0) })).sort((a, b) => b.value - a.value).shift().word;
 }
 
 module.exports = high;
