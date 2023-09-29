@@ -2,7 +2,7 @@ const sumDigPow = require('./main');
 
 /// take apart a number to 10th and 1st.
 
-describe('take apart a number to 10th and ones and sum', () => {
+describe('take a number and sum its digits raised to the consecutive power', () => {
   test('1,2 returns [1,2]', () => {
     expect(sumDigPow(1,2)).toStrictEqual([1,2]);
   });
