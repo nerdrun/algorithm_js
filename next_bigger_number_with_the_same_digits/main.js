@@ -3,7 +3,7 @@ function nextBigger(n) {
   let index = array.findLastIndex((_, index) => array[index] > array[index - 1])
   if (index <= 0) return -1;
 
-  const [suffle, temp] = [array.splice(index).sort(), array[array.length - 1]];
+  const [suffle, temp] = [array.splice(index).sort(), array.at(-1)];
   
   index = suffle.findIndex(value => value > temp);
   array[array.length - 1] = suffle[index];

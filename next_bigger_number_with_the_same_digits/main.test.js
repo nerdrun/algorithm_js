@@ -13,6 +13,10 @@ describe('The next bigger number', () => {
     expect(nextBigger(2017)).toBe(2071)
   })
 
+  test('the next bigger number of 2314 is 2341', () => {
+    expect(nextBigger(2314)).toBe(2341)
+  })
+
   test('the next bigger number of 144 is 414', () => {
     expect(nextBigger(144)).toBe(414)
   })
@@ -23,6 +27,10 @@ describe('The next bigger number', () => {
 
   test('the next bigger number of 643220 is -1', () => {
     expect(nextBigger(643220)).toBe(-1)
+  })
+
+  test('the next bigger number of 7139401 is 7139410', () => {
+    expect(nextBigger(7139401)).toBe(7139410)
   })
 
   test('the next bigger number of 29977540 is 40257799', () => {
