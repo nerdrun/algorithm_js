@@ -1,14 +1,14 @@
 function nextBigger(n) {
-  const arrayWithNumbers = [...String(n)];
-  let index = arrayWithNumbers.findLastIndex((_, index) => arrayWithNumbers[index] > arrayWithNumbers[index - 1])
+  const array = [...String(n)];
+  let index = array.findLastIndex((_, index) => array[index] > array[index - 1])
   if (index <= 0) return -1;
 
-  const [suffle, temp] = [arrayWithNumbers.splice(index).sort(), arrayWithNumbers[arrayWithNumbers.length - 1]];
+  const [suffle, temp] = [array.splice(index).sort(), array[array.length - 1]];
   
   index = suffle.findIndex(value => value > temp);
-  arrayWithNumbers[arrayWithNumbers.length - 1] = suffle[index];
+  array[array.length - 1] = suffle[index];
   suffle[index] = temp;
-  return +arrayWithNumbers.concat(suffle).join('');
+  return +array.concat(suffle).join('');
 
   // const getMax = number => {
   //   let array = [];
