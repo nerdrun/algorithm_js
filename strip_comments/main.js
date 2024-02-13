@@ -1,5 +1,4 @@
 function solution(text, markers) {
-  if(!isMarker(text, markers)) return text;
   const array = text.split('');
   let result = '';
 
